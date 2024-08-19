@@ -1,0 +1,12 @@
+<resources>
+
+    <style name="Theme.Chatmosphere" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="android:statusBarColor">@color/primary</item>
+    </style>
+    <style name="DarkAlertDialog" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:background">@color/black</item> <!-- Change to your desired dark background color -->
+        <!-- Add any other customizations here -->
+    </style>
+
+</resources>

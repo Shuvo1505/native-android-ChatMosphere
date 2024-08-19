@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#6750a4</color>
+    <color name="app_wall">#107ceb</color>
+    <color name="primary_text">#000000</color>
+    <color name="secondary_text">#C3C3C3</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="input_background">#E6E6E6</color>
+    <color name="icon_background">#6E6E6E</color>
+    <color name="app_back">#FC7A69</color>
+    <color name="error">#FF0000</color>
+    <color name="error_dark">#A20505</color>
+    <color name="avail">#8BC34A</color>
+    <color name="background">#2b2b2b</color>
+    <color name="received_message_background">#CCCCCC</color>
+</resources>

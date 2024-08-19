@@ -1,6 +1,6 @@
 # Getting Started
 
-1) You've to create a ChatMosphere account to use this app.
+1) To access this app, you'll need to create a ChatMosphere account using your email
 ----------------------------------------------------------------------------------------------------------------------
 
 # Features
@@ -10,8 +10,8 @@
 3) Optimized Performance
 4) Chat Protection
 5) Simple User Interface
-6) 'Delete for Everyone' Feature Enabled in chat messages
-7) Account Deletion and Password Recovery Features Enabled
+6) 'Delete for Everyone' feature is available for chat messages
+7) Account deletion and password recovery features are available
 
 ----------------------------------------------------------------------------------------------------------------------
 

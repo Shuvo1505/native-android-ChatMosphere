@@ -1,4 +1,4 @@
-package com.devbyheart.chatmosphere.utilities;
+package com.devbyheart.chatmosphere.utilities
 
 import android.app.KeyguardManager;
 import android.content.Context;

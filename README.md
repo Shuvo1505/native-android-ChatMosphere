@@ -1,6 +1,6 @@
 # Getting Started
 
-1) To access this app, you'll need to create a ChatMosphere account using your emai
+1) To access this app, you'll need to create a ChatMosphere account using your email
 ----------------------------------------------------------------------------------------------------------------------
 
 # Features

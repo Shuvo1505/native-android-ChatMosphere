@@ -10,7 +10,7 @@
 3) Optimized Performance
 4) Chat Protection
 5) Simple User Interface
-6) 'Delete for Everyone' Feature Enabled
+6) 'Delete for Everyone' Feature Enabled in chat messages
 7) Account Deletion and Password Recovery Features Enabled
 
 ----------------------------------------------------------------------------------------------------------------------

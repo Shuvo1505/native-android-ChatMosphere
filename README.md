@@ -1,7 +1,7 @@
 # Getting Started
 
 1) Android version must be 6.0 (Marshmallow) or above
-2) To access this app, you'll need to create a ChatMosphere account using your email
+2) To access this app, you'll need to create a ChatMosphere account using your emaila
 ----------------------------------------------------------------------------------------------------------------------
 
 # Features

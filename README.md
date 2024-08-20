@@ -16,7 +16,7 @@
 
 1) 'Delete for Everyone' feature is available for chat messages
 2) Account deletion and password recovery features are available
-3) Added emoji panel in chat screen
+3) Emoji panel was added in chat screen
 
 ----------------------------------------------------------------------------------------------------------------------
 

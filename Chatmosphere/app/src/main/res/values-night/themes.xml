@@ -8,5 +8,4 @@
         <item name="android:background">@color/black</item> <!-- Change to your desired dark background color -->
         <!-- Add any other customizations here -->
     </style>
-
 </resources>

@@ -12,18 +12,19 @@
         android:layout_height="@dimen/_25sdp"
         android:background="@drawable/image_background"
         android:scaleType="centerCrop"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/messageContainer"
+        app:layout_constraintStart_toStartOf="parent"
         app:riv_oval="true" />
 
     <LinearLayout
         android:id="@+id/messageContainer"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginStart="@dimen/_4sdp"
-        android:orientation="horizontal"
         android:background="@drawable/background_receive"
+        android:gravity="start"
+        android:maxWidth="@dimen/_96sdp"
+        android:orientation="horizontal"
         android:paddingStart="@dimen/_12sdp"
         android:paddingTop="@dimen/_8sdp"
         android:paddingEnd="@dimen/_12sdp"
@@ -36,25 +37,27 @@
             android:id="@+id/delicon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/_4sdp"
             android:contentDescription="@string/s4"
             android:src="@drawable/del_msg"
-            android:visibility="gone"
-            android:layout_gravity="center"
-            android:layout_marginEnd="@dimen/_4sdp"/>
+            android:visibility="gone" />
+
         <Space
             android:id="@+id/delspace"
-            android:visibility="gone"
-            android:layout_gravity="center"
             android:layout_width="@dimen/_4sdp"
-            android:layout_height="@dimen/_4sdp"/>
+            android:layout_height="@dimen/_4sdp"
+            android:layout_gravity="center"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/textMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="start"
+            android:gravity="start"
             android:textColor="@color/black"
-            android:textSize="@dimen/_13ssp"/>
+            android:textSize="@dimen/_13ssp" />
     </LinearLayout>
 
     <TextView

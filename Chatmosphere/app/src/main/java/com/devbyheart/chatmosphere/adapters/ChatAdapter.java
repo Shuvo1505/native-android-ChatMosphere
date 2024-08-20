@@ -106,9 +106,9 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         void setData(ChatMessage chatMessage) {
             if (Boolean.TRUE.equals(chatMessage.isDeletedForEveryone)) {
-                ViewGroup.LayoutParams params = binding.textMessage.getLayoutParams();
+                ViewGroup.LayoutParams params = binding.messageContainer.getLayoutParams();
                 params.width = ViewGroup.LayoutParams.WRAP_CONTENT;
-                binding.textMessage.setLayoutParams(params);
+                binding.messageContainer.setLayoutParams(params);
                 binding.textMessage.setTextColor(Color.GRAY);
                 binding.textMessage.setTypeface(Typeface.defaultFromStyle(Typeface.ITALIC));
                 binding.delspace.setVisibility(View.VISIBLE);
@@ -116,9 +116,9 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 binding.delicon.setColorFilter(Color.GRAY);
                 binding.textMessage.setText(R.string.message_was_deleted);
             } else {
-                ViewGroup.LayoutParams params = binding.textMessage.getLayoutParams();
+                ViewGroup.LayoutParams params = binding.messageContainer.getLayoutParams();
                 params.width = ViewGroup.LayoutParams.WRAP_CONTENT;
-                binding.textMessage.setLayoutParams(params);
+                binding.messageContainer.setLayoutParams(params);
                 binding.textMessage.setTextColor(Color.WHITE);
                 binding.textMessage.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
                 binding.delspace.setVisibility(View.GONE);
@@ -140,9 +140,9 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         void setData(ChatMessage chatMessage, Bitmap receiverProfileImage) {
             if (Boolean.TRUE.equals(chatMessage.isDeletedForEveryone)) {
-                ViewGroup.LayoutParams params = binding.textMessage.getLayoutParams();
+                ViewGroup.LayoutParams params = binding.messageContainer.getLayoutParams();
                 params.width = ViewGroup.LayoutParams.WRAP_CONTENT;
-                binding.textMessage.setLayoutParams(params);
+                binding.messageContainer.setLayoutParams(params);
                 binding.textMessage.setTextColor(Color.GRAY);
                 binding.textMessage.setTypeface(Typeface.defaultFromStyle(Typeface.ITALIC));
                 binding.delicon.setVisibility(View.VISIBLE);
@@ -150,14 +150,19 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 binding.delspace.setVisibility(View.VISIBLE);
                 binding.textMessage.setText(R.string.message_was_deleted);
             } else {
-                ViewGroup.LayoutParams params = binding.textMessage.getLayoutParams();
-                params.width = ViewGroup.LayoutParams.WRAP_CONTENT;
-                binding.textMessage.setLayoutParams(params);
+                ViewGroup.LayoutParams param = binding.messageContainer.getLayoutParams();
+                param.width = 360;
+                binding.messageContainer.setLayoutParams(param);
+                binding.textMessage.setText(chatMessage.message);
+                if (chatMessage.message.length() < 30) {
+                    ViewGroup.LayoutParams params = binding.messageContainer.getLayoutParams();
+                    params.width = ViewGroup.LayoutParams.WRAP_CONTENT;
+                    binding.messageContainer.setLayoutParams(params);
+                }
                 binding.textMessage.setTextColor(Color.BLACK);
                 binding.textMessage.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
                 binding.delicon.setVisibility(View.GONE);
                 binding.delspace.setVisibility(View.GONE);
-                binding.textMessage.setText(chatMessage.message);
             }
             binding.textDateTime.setText(chatMessage.dateTime);
             if (receiverProfileImage != null) {

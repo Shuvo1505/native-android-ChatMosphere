@@ -6,18 +6,25 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Base64;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.GridView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import com.devbyheart.chatmosphere.R;
 import com.devbyheart.chatmosphere.adapters.ChatAdapter;
+import com.devbyheart.chatmosphere.adapters.EmojiAdapter;
 import com.devbyheart.chatmosphere.databinding.ActivityChatBinding;
 import com.devbyheart.chatmosphere.listeners.RecyclerItemClickListener;
 import com.devbyheart.chatmosphere.models.ChatMessage;
@@ -25,6 +32,7 @@ import com.devbyheart.chatmosphere.models.UserSection;
 import com.devbyheart.chatmosphere.network.APIClient;
 import com.devbyheart.chatmosphere.network.APIService;
 import com.devbyheart.chatmosphere.utilities.Constants;
+import com.devbyheart.chatmosphere.utilities.EmojiBase;
 import com.devbyheart.chatmosphere.utilities.PreferenceManager;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.firestore.DocumentChange;
@@ -62,7 +70,6 @@ public class ChatActivity extends BaseActivity {
     private PreferenceManager preferenceManager;
     private FirebaseFirestore database;
     private String conversationID = null;
-
     private final OnCompleteListener<QuerySnapshot> conversationComplete = task -> {
         if (task.isSuccessful() && task.getResult() != null && !task.getResult().getDocuments().isEmpty()) {
             DocumentSnapshot documentSnapshot = task.getResult().getDocuments().get(0);
@@ -143,8 +150,6 @@ public class ChatActivity extends BaseActivity {
             checkForConversation();
         }
     };
-
-
     private Boolean isReceiverAvailable = false;
 
     @Override
@@ -322,6 +327,7 @@ public class ChatActivity extends BaseActivity {
         binding.textName.setText(receiverUser.name);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void setListeners() {
         binding.imageBack.setOnClickListener(v -> getOnBackPressedDispatcher().onBackPressed());
         binding.layoutSend.setOnClickListener(V -> {
@@ -353,8 +359,58 @@ public class ChatActivity extends BaseActivity {
                 }
             }
         }));
-
+        binding.inputMessage.setOnTouchListener((v, event) -> {
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                int drawableLeftWidth = binding.inputMessage.getCompoundDrawables()[0].getBounds().width();
+                if (event.getX() <= (drawableLeftWidth + binding.inputMessage.getPaddingStart())) {
+                    showEmojiPicker();
+                    return true;
+                }
+            }
+            return false;
+        });
     }
+
+    private void showEmojiPicker() {
+        EmojiAdapter adapter = getEmojiAdapter();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        GridView emojiGrid = (GridView) LayoutInflater.from(this).inflate(R.layout.emoji_picker, null);
+
+        emojiGrid.setAdapter(adapter);
+        AlertDialog dialog = builder.setView(emojiGrid).create();
+        Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+        emojiGrid.setOnItemClickListener((parent, view, position, id) -> {
+            String selectedEmoji = adapter.getItem(position);
+            int cursorPosition = binding.inputMessage.getSelectionStart();
+            binding.inputMessage.getText().insert(cursorPosition, selectedEmoji);
+            dialog.dismiss();
+        });
+    }
+
+    private @NonNull EmojiAdapter getEmojiAdapter() {
+        String[] emojis = {
+                EmojiBase.SMILING_FACE,
+                EmojiBase.GRINNING_FACE,
+                EmojiBase.ANGRY_FACE,
+                EmojiBase.BEAMING_FACE,
+                EmojiBase.CRYING_FACE,
+                EmojiBase.BLESSED_FACE,
+                EmojiBase.FACE_WITH_TEARS,
+                EmojiBase.HEART_EYES,
+                EmojiBase.KISSING_FACE,
+                EmojiBase.RED_HEART,
+                EmojiBase.SCREAMING_FACE,
+                EmojiBase.SMILING_WITH_SUNGLASSES,
+                EmojiBase.THUMBS_UP,
+                EmojiBase.THUMBS_DOWN,
+                EmojiBase.VICTORY_HAND,
+                EmojiBase.WAVING_HAND
+        };
+
+        return new EmojiAdapter(this, emojis);
+    }
+
 
     private String getDateTime(Date date) {
         return new SimpleDateFormat("MMMM dd, yyyy - hh:mm a", Locale.getDefault()).

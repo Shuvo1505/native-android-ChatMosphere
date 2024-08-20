@@ -12,7 +12,7 @@
 4) Chat Protection
 5) Simple User Interface
 
-# Changelog [Packaged-1.1]
+# Changelog [Packaged-1.2]
 
 1) 'Delete for Everyone' feature is available for chat messages
 2) Account deletion and password recovery features are available

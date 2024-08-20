@@ -26,4 +26,4 @@
 ![homeview](https://github.com/user-attachments/assets/aed1f4f7-f4ce-4106-90a4-90e68af5f030)
 ![userview](https://github.com/user-attachments/assets/89c44bc4-0e3b-48da-8b93-9dc650b1722a)
 ![chatview](https://github.com/user-attachments/assets/220b3488-e697-45e3-a5f9-f878fcb48eca)
-![profileview](https://github.com/user-attachments/assets/3d981163-c96e-45e1-88c7-7a987b029825)
+![profileview](https://github.com/user-attachments/assets/948c243a-090c-4f60-ab58-cbe7dfa80650)

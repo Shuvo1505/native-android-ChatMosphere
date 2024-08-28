@@ -1,7 +1,8 @@
 # Getting Started
 
 1) Android version must be 6.0 (Marshmallow) or above
-2) To access this app, you'll need to create a ChatMosphere account using your email
+2) This app is optimized for smartphones. User experience on tablets may be suboptimal and it does not support wearable devices
+3) To access this app, you'll need to create a ChatMosphere account using your email
 ----------------------------------------------------------------------------------------------------------------------
 
 # Features

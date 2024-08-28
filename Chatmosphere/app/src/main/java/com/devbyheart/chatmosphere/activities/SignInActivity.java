@@ -213,7 +213,7 @@ public class SignInActivity extends AppCompatActivity implements NetworkChangeRe
         if (isSmartwatch()) {
             new AlertDialog.Builder(this, R.style.DarkAlertDialog)
                     .setIcon(R.drawable.warning)
-                    .setMessage("Not Supported")
+                    .setMessage("Not Supported!")
                     .setCancelable(false)
                     .setPositiveButton("Close", (dialog, which) -> finish())
                     .show();
